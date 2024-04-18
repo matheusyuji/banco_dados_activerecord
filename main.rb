@@ -5,6 +5,7 @@ require 'carteirinha.rb'
 require 'disciplina.rb'
 require 'docente.rb'
 require 'estudante.rb'
+require "disciplinaestudante.rb"
 
 # Cria a tabela hash com os atributos
 def cria_tabela_hash(dados)
@@ -28,6 +29,8 @@ def alteracao(tabela, tabela_atributos)
     Docente.alterar(tabela_atributos)
   when "estudantes"
     Estudante.alterar(tabela_atributos)
+  when "disciplinas_estudantes"
+    DisciplinaEstudante.alterar(tabela_atributos)
   else
     puts "A tabela nao existe"
   end
@@ -44,6 +47,8 @@ def exclusao(tabela, tabela_atributos)
     Docente.excluir(tabela_atributos)
   when "estudantes"
     Estudante.excluir(tabela_atributos)
+  when "disciplinas_estudantes"
+    DisciplinaEstudante.excluir(tabela_atributos)
   else
     puts "A tabela nao existe"
   end
@@ -60,6 +65,8 @@ def inclusao(tabela, tabela_atributos)
     Docente.inserir(tabela_atributos)
   when "estudantes"
     Estudante.inserir(tabela_atributos)
+  when "disciplinas_estudantes"
+    DisciplinaEstudante.inserir(tabela_atributos)
   else
     puts "A tabela nao existe"
   end
@@ -76,6 +83,8 @@ def lista(tabela, tabela_atributos)
     Docente.listar(tabela_atributos)
   when "estudantes"
     Estudante.listar(tabela_atributos)
+  when "disciplinas_estudantes"
+    DisciplinaEstudante.listar(tabela_atributos)
   else
     puts "A tabela nao existe"
   end
@@ -83,7 +92,7 @@ end
 
 puts "Siga o seguinte comando <operacao> <tabela> {atributo=valor}"
 puts "Operacoes: alteracao, exclusao, inclusao e lista"
-puts "Tabelas: carteirinhas, disciplinas, docentes e estudantes"
+puts "Tabelas: carteirinhas, disciplinas, docentes , estudantes e disciplinas_estudantes"
 puts "Exemplo de operacao valida: "
 puts "Para encerrar o programa digite quit"
 
