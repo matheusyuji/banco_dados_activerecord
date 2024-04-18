@@ -15,6 +15,9 @@ if [ ! -e "$arquivo" ]; then
   echo "Criando tabela disciplinas ..."
   ruby banco/criaDisciplinas.rb
 
+  echo "Criando tabela disciplinas_estudantes ..."
+  ruby banco/criaDisciplinasEstudantes.rb
+
   echo "Populando tabela estudantes ..."
   ruby banco/populaEstudantes.rb
 
@@ -26,6 +29,9 @@ if [ ! -e "$arquivo" ]; then
 
   echo "Populando tabela disciplinas ..."
   ruby banco/populaDisciplinas.rb
+
+  echo "Populando tabela disciplinas_estudantes ..."
+  ruby banco/populaDisciplinasEstudantes.rb
 
 else 
   echo "Já existe um arquivo sqlite3."

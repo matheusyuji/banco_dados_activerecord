@@ -8,7 +8,7 @@ class Carteirinha < ActiveRecord::Base;
   def self.inserir(atributos)
     carteirinha = Carteirinha.new({ :numero => atributos[:numero], :estudante_id => atributos[:estudante_id]})
     carteirinha.save
-    puts "Done"
+    puts "Inserido com sucesso!"
   end
 
   def self.excluir(atributos)
@@ -20,6 +20,8 @@ class Carteirinha < ActiveRecord::Base;
     carteirinhas.each do |carteirinha|
       carteirinha.delete
     end
+
+    puts "Excluido com sucesso!"
   end
 
   def self.alterar(atributos)
@@ -49,7 +51,7 @@ class Carteirinha < ActiveRecord::Base;
 
   def mostra()
     puts self.inspect
-    puts "\t::Relações::"
+    puts "\tRelações:"
     puts "\tEstudante: #{estudante.nome}"
   end
 

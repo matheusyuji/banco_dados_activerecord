@@ -3,12 +3,13 @@ require 'active_record'
 ActiveRecord::Base.establish_connection :adapter => "sqlite3",
                                         :database => "Escola.sqlite3"
 class Disciplina < ActiveRecord::Base;
-  has_and_belongs_to_many :estudantes, -> { distinct }, dependent: :destroy
+  has_and_belongs_to_many :estudantes
   belongs_to :docente
 
   def self.inserir(atributos)
     disciplina = Disciplina.new({ :nomeDisciplina => atributos[:nomeDisciplina], :codigo => atributos[:codigo], :horario => atributos[:horario], :docente_id => atributos[:docente_id]})
     disciplina.save
+    puts "Inserido com sucesso!"
   end
 
   def self.excluir(atributos)
@@ -20,6 +21,8 @@ class Disciplina < ActiveRecord::Base;
     disciplinas.each do |disciplina|
       disciplina.delete
     end
+
+    puts "Excluido com sucesso!"
   end
 
   def self.alterar(atributos)
@@ -58,7 +61,7 @@ class Disciplina < ActiveRecord::Base;
 
   def mostra()
     puts self.inspect
-    puts "\t::Relações::"
+    puts "\tRelações:"
     puts "\tDocente: #{docente.nome}"
   end
 
